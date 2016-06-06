@@ -1,2 +1,7 @@
 ---
 # handlers file for ansible-mongodb-mongos
+
+- name: restart mongos
+  service:
+      name=mongos
+      state=restarted

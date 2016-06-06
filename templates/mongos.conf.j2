@@ -1,0 +1,10 @@
+net:
+  port: 27017
+operationProfiling: {}
+processManagement:
+  fork: "true"
+sharding:
+  configDB: {{ mongodb_mongos_config_servers | join(",") }}
+systemLog:
+  destination: file
+  path: /var/log/mongodb/mongos.log
