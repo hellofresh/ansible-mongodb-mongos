@@ -1,2 +1,46 @@
 ---
 # tasks file for ansible-mongodb-mongos
+
+- name: main | add mongodb repo key
+  apt_key:
+    keyserver="keyserver.ubuntu.com"
+    id="7F0CEB10"
+
+- name: main | add mongodb repo
+  apt_repository:
+    repo="deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse"
+    state="present"
+
+- name: main | create mongodb group
+  group:
+    name="mongodb"
+    system="yes"
+
+- name: main | create mongodb user
+  user:
+    name="mongodb"
+    group="mongodb"
+    createhome="no"
+    system="yes"
+
+- name: main | install mongos package
+  apt:
+    name="mongodb-org-mongos"
+    state="present"
+
+- name: main | install mongos init script
+  template:
+    src="mongos-init.j2"
+    dest="/etc/init/mongos.conf"
+    mode="0644"
+    owner="root"
+    group="root"
+
+- name: main | configure mongos
+  template:
+    src="mongos.conf.j2"
+    dest="/etc/mongos.conf"
+    mode="0640"
+    owner="mongodb"
+    group="mongodb"
+  notify: restart mongos
