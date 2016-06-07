@@ -22,6 +22,7 @@
     group="mongodb"
     createhome="no"
     system="yes"
+    shell="/bin/false"
 
 - name: main | install mongos package
   apt:

@@ -9,7 +9,7 @@ driver                    :
 provisioner:
     name                  : ansible_push
     verbose               : "vvvv"
-    ansible_config        : "tests/ansible.cfg"
+    ansible_config        : "test/ansible.cfg"
     idempotency_test      : True
     diff                  : True
     sudo                  : <%= if ENV['TRAVIS'] then 'True' else 'False' end  %>
@@ -22,4 +22,4 @@ platforms:
 suites:
    - name                 : mongos
      provisioner          :
-        playbook          : "tests/mongos/mongos.yml"
+        playbook          : "test/integration/mongos/mongos.yml"
