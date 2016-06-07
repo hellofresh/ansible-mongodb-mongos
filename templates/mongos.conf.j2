@@ -2,7 +2,7 @@ net:
   port: 27017
 operationProfiling: {}
 processManagement:
-  fork: "true"
+  fork: "false"
 sharding:
   configDB: {{ mongodb_mongos_config_servers | join(",") }}
 systemLog:
