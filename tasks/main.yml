@@ -45,3 +45,9 @@
     owner="mongodb"
     group="mongodb"
   notify: restart mongos
+
+- name: main | ensure mongos is started
+  service:
+    name="mongos"
+    state="started"
+    enabled="true"
