@@ -36,6 +36,16 @@
     mode="0644"
     owner="root"
     group="root"
+  when: ansible_service_mgr == "upstart"
+
+- name: main | install mongos systemd config
+  template:
+    src="mongos-init-systemd.j2"
+    dest="/lib/systemd/system/mongos.service"
+    mode="0644"
+    owner="root"
+    group="root"
+  when: ansible_service_mgr == "systemd"
 
 - name: main | configure mongos
   template:
@@ -46,8 +56,9 @@
     group="mongodb"
   notify: restart mongos
 
-- name: main | ensure mongos is started
-  service:
-    name="mongos"
-    state="started"
-    enabled="true"
+# Disabled for now. Will enable in future release. 
+# - name: main | ensure mongos is started
+#   service:
+#     name="mongos"
+#     state="started"
+#     enabled="true"
