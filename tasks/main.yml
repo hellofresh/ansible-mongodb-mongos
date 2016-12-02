@@ -56,9 +56,9 @@
     group="mongodb"
   notify: restart mongos
 
-# Disabled for now. Will enable in future release. 
-# - name: main | ensure mongos is started
-#   service:
-#     name="mongos"
-#     state="started"
-#     enabled="true"
+- name: main | ensure mongos is started
+  service:
+    name="mongos"
+    state="started"
+    enabled="true"
+  when: mongodb_mongos_start_service
