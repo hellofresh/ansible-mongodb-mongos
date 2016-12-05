@@ -47,6 +47,15 @@
     group="root"
   when: ansible_service_mgr == "systemd"
 
+- name: main | create directory for logs
+  file:
+    state="directory"
+    dest="/var/log/mongodb"
+    mode="0755"
+    owner="mongodb"
+    group="mongodb"
+  when: ansible_service_mgr == "systemd"
+
 - name: main | configure mongos
   template:
     src="mongos.conf.j2"
