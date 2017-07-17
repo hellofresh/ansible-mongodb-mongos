@@ -4,7 +4,7 @@
 - name: main | add mongodb repo key
   apt_key:
     keyserver="keyserver.ubuntu.com"
-    id="7F0CEB10"
+    id="{{ mongodb_mongos_repo_key }}"
 
 - name: main | add mongodb repo
   apt_repository:
