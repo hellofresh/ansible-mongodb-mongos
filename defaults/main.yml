@@ -1,7 +1,7 @@
 ---
 # defaults file for ansible-mongodb-mongos
 
-mongodb_mongos_version_branch: "3.0"
+mongodb_mongos_version_branch: "3.2"
 mongodb_mongos_repo_key: "{{ mongodb_mongos_repo_keys[mongodb_mongos_version_branch] }}"
 
 mongodb_mongos_config_servers: []
