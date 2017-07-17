@@ -1,2 +1,7 @@
 ---
 # vars file for ansible-mongodb-mongos
+
+mongodb_mongos_repo_keys:
+  "3.0": "7F0CEB10"
+  "3.2": "EA312927"
+  "3.4": "0C49F373"
