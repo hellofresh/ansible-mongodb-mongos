@@ -1,6 +1,8 @@
 ---
 # defaults file for ansible-mongodb-mongos
 
+mongodb_mongos_version_branch: "3.0"
+
 mongodb_mongos_config_servers: []
 mongodb_mongos_listen_host: 127.0.0.1
 mongodb_mongos_listen_port: 27017
