@@ -4,4 +4,8 @@
 mongodb_mongos_repo_keys:
   "3.0": "7F0CEB10"
   "3.2": "EA312927"
-  "3.4": "0C49F373"
+  "3.4": "0C49F3730359A14518585931BC711F9BA15703C6"
+
+mongodb_mongos_repo_key: "{{ mongodb_mongos_repo_keys[mongodb_mongos_version_branch] }}"
+
+mongodb_mongos_config_servers_replicaset: "{{ True if (mongodb_mongos_version_branch == '3.4' or mongodb_mognos_config_relicaset_force) else False }}"

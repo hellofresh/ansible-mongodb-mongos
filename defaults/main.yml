@@ -1,10 +1,12 @@
 ---
 # defaults file for ansible-mongodb-mongos
 
-mongodb_mongos_version_branch: "3.2"
-mongodb_mongos_repo_key: "{{ mongodb_mongos_repo_keys[mongodb_mongos_version_branch] }}"
+mongodb_mongos_version_branch: "3.4"
 
 mongodb_mongos_config_servers: []
+mongodb_mognos_config_relicaset_name: "configRS"
+mongodb_mognos_config_relicaset_force: False
+
 mongodb_mongos_listen_host: 127.0.0.1
 mongodb_mongos_listen_port: 27017
 
