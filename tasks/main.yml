@@ -56,6 +56,14 @@
     group="mongodb"
   when: ansible_service_mgr == "systemd"
 
+- name: main | configure logrotate
+  template:
+    src: "logrotate.conf.j2"
+    dest: "/etc/logrotate.d/mongodb"
+    owner: root
+    group: root
+    mode: "0644"
+
 - name: main | configure mongos
   template:
     src="mongos.conf.j2"

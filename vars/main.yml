@@ -9,3 +9,7 @@ mongodb_mongos_repo_keys:
 mongodb_mongos_repo_key: "{{ mongodb_mongos_repo_keys[mongodb_mongos_version_branch] }}"
 
 mongodb_mongos_config_servers_replicaset: "{{ True if (mongodb_mongos_version_branch == '3.4' or mongodb_mognos_config_relicaset_force) else False }}"
+
+mongodb_mongos_postrotate_command:
+  upstart: pkill --signal SIGUSR1 mongos >/dev/null 2>&1
+  systemd: systemctl kill -s SIGUSR1 mongos.service >/dev/null 2>&1
