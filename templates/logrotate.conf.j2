@@ -1,0 +1,11 @@
+# {{ ansible_managed }}
+
+{{ mongodb_mongos_log_path }} {
+  compress
+  daily
+  rotate 14
+  size 100M
+  postrotate
+    {{ mongodb_mongos_postrotate_command[ansible_service_mgr] }}
+  endscript
+}

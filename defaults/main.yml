@@ -11,3 +11,5 @@ mongodb_mongos_listen_host: 127.0.0.1
 mongodb_mongos_listen_port: 27017
 
 mongodb_mognos_start_service: True
+
+mongodb_mongos_log_path: "/var/log/mongodb/mongos.log"
