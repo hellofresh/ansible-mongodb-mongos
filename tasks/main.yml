@@ -27,7 +27,7 @@
 - name: main | install mongos package
   apt:
     name="mongodb-org-mongos"
-    state="present"
+    state="latest"
 
 - name: main | install mongos init script
   template:
